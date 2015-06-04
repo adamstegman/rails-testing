@@ -35,5 +35,9 @@ RUN apt-get -y install libmysqlclient-dev \
       qt5-default libqt5webkit5-dev g++ \
       memcached
 
+# Enable sudo
+RUN chown root:root /usr/bin/sudo; \
+    chmod 4755 /usr/bin/sudo
+
 # Clean up the image
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
